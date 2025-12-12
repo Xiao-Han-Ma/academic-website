@@ -3,22 +3,193 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Research projects of Xiaohan Ma - plasma instabilities, turbulence, and MHD simulations in the heliosphere">
     <title>Research - Xiaohan Ma</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Project Overview Box */
+        .project-overview-box {
+            background: #f8f9fa;
+            border-left: 4px solid #1a365d;
+            padding: 1.2rem 1.5rem;
+            margin-bottom: 1.5rem;
+            border-radius: 4px;
+        }
+        
+        .project-overview-box p {
+            margin: 0;
+            line-height: 1.7;
+            color: #2c3e50;
+        }
+        
+        /* Key Contributions Title */
+        .contributions-title {
+            color: #1a365d;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #ffd700;
+            display: inline-block;
+        }
+        
+        /* Contributions List */
+        .contributions-list {
+            margin-top: 1rem;
+            padding-left: 1.5rem;
+        }
+        
+        .contributions-list li {
+            margin-bottom: 0.8rem;
+            line-height: 1.6;
+            color: #34495e;
+        }
+        
+        .contributions-list li::marker {
+            color: #ffd700;
+        }
+        
+        /* Keywords Styling - hide "Keywords:" label */
+        .keywords {
+            margin-top: 1rem;
+            text-align: center;
+        }
+        
+        .keywords strong {
+            display: none;
+        }
+        
+        .keywords .highlight {
+            background: linear-gradient(120deg, #ffd700 0%, #f0c800 100%);
+            color: #1a365d;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            display: inline-block;
+            margin: 0 0.3rem;
+        }
+        
+        /* Page Intro Box */
+        .page-intro-box {
+            background: #f8f9fa;
+            border-left: 4px solid #1a365d;
+            padding: 1.5rem 2rem;
+            margin: 1.5rem 0;
+            border-radius: 4px;
+            line-height: 1.8;
+            color: #2c3e50;
+        }
+        
+        /* Research Overview Box */
+        .overview-content-box {
+            background: #f8f9fa;
+            border-left: 4px solid #1a365d;
+            padding: 1.5rem 2rem;
+            margin-top: 1.5rem;
+            border-radius: 4px;
+        }
+        
+        .overview-content-box p {
+            line-height: 1.8;
+            color: #2c3e50;
+            margin-bottom: 1.2rem;
+        }
+        
+        .overview-content-box p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Horizontal Methods Display */
+        .methods-horizontal {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 8px;
+            border-left: 4px solid #1a365d;
+        }
+        
+        .method-row {
+            display: flex;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .method-row:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+        
+        .method-label {
+            font-weight: 600;
+            color: #1a365d;
+            min-width: 180px;
+            flex-shrink: 0;
+            padding-right: 1.5rem;
+        }
+        
+        .method-items {
+            line-height: 1.8;
+            color: #34495e;
+            flex: 1;
+        }
+        
+        /* SHIELD Center Box */
+        .shield-center-box {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e8eef5 100%);
+            border: 2px solid #1a365d;
+            border-radius: 8px;
+            padding: 2.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        .shield-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .shield-header h3 {
+            color: #1a365d;
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+        
+        .shield-subtitle {
+            color: #5a6c7d;
+            font-style: italic;
+            font-size: 1.1rem;
+            margin: 0;
+        }
+        
+        .shield-content {
+            margin-bottom: 2rem;
+        }
+        
+        .shield-content p {
+            line-height: 1.8;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+        
+        .shield-content p:last-child {
+            margin-bottom: 0;
+        }
+        
+        .shield-link {
+            text-align: center;
+        }
+        
+        .shield-link .btn {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+        }
+    </style>
 </head>
 <body>
-    <!-- Navigation -->
     <nav class="navbar">
-        <div class="container">
-            <div class="nav-brand">
-                <a href="index.html">Xiaohan Ma</a>
-            </div>
-            <button class="nav-toggle" aria-label="Toggle navigation">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
+        <div class="nav-container">
+            <a href="index.html" class="logo">Xiaohan Ma</a>
             <ul class="nav-menu">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="research.html" class="active">Research</a></li>
@@ -26,340 +197,248 @@
                 <li><a href="cv.html">CV</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
+            <button class="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
     </nav>
 
-    <!-- Page Header -->
-    <section class="page-header">
+    <main class="main-content page-content">
         <div class="container">
-            <h1>Research</h1>
-            <p class="subtitle">My research focuses on exploring plasma instabilities and turbulence in various magnetized plasma environments through three-dimensional magnetohydrodynamic simulations and observations. Currently, I investigate the full evolutionary cycles of Rayleigh–Taylor and Kelvin–Helmholtz instabilities in heliosphere: their initial coupling, quasi-periodic evolution, and nonlinear saturation phases that drive the transition from coherent structures to fully developed turbulence.</p>
-            <p class="keywords"><strong>Keywords:</strong> <span class="highlight">Plasma instabilities</span> • <span class="highlight">Plasma turbulence</span> • <span class="highlight">Magnetohydrodynamical simulations</span></p>
-        </div>
-    </section>
-
-    <!-- Research Overview -->
-    <section class="section">
-        <div class="container">
-            <div class="research-overview">
-                <h2>Research Overview</h2>
-                <p>
-                    My doctoral research in Professor Merav Opher's group at Boston University and the SHIELD (Solar-wind with Hydrogen Ion Exchange and Large-scale Dynamics) Drive Center focuses on plasma instabilities and turbulence in the heliosheath. I contributed to developing a three-dimensional MHD model with block-adaptive mesh refinement on HPC clusters, collaborating with the University of Michigan. I revealed that charge exchange forces drive Rayleigh-Taylor instability while velocity shear triggers Kelvin-Helmholtz instability and demonstrated their periodic evolution from coupled growth to decoupling phases. I further collaborated with University of Alabama to develop power spectra and kurtosis workflows to track energy cascade from large-scale instabilities to fully developed turbulence.
-                </p>
-                <p>
-                    During my master's and undergraduate research at Peking University, I conducted statistical analysis of multi-satellite data investigating magnetospheric responses to solar wind variations, developing automated event detection algorithms and applying Superposed Epoch Analysis. This resulted in two first-author publications in <em>Journal of Geophysical Research: Space Physics</em> and provided practical experience with large-scale observational datasets applicable to solar remote-sensing data.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Current Projects -->
-    <section class="section bg-light">
-        <div class="container">
-            <h2 class="section-title">Current Research Projects</h2>
-            
-            <div class="project-detailed">
-                <div class="project-header">
-                    <h3>1. Triggering Conditions of Instabilities in the Heliosheath</h3>
-                    <span class="project-status ongoing">Ongoing</span>
-                    <span class="project-funding">NASA Fellowship Funded</span>
-                </div>
-                <div class="project-content">
-                    <div class="project-description">
-                        <p>
-                            To understand the triggering mechanisms of RT/KH instabilities in the heliosheath, I participated in constructing a three-dimensional multi-fluid parallel MHD model of the solar system boundary, incorporating block-adaptive mesh refinement technology to achieve efficient numerical simulation of complex plasma processes. Building on this foundation, I innovatively adopted a progressive modeling strategy of "coarse-grid steady-state followed by fine-grid time-domain" to precisely analyze the origins of instabilities in the heliosheath.
-                        </p>
-                        <h4>Key Findings:</h4>
-                        <ul>
-                            <li>First revealed that magnetic tension and charge exchange can synergistically decelerate the solar wind, forming a unique and stable low-speed region</li>
-                            <li>This low-speed region establishes the necessary physical conditions for subsequent instability development</li>
-                            <li>Developed novel numerical techniques combining adaptive mesh refinement with progressive grid resolution strategies</li>
-                        </ul>
-                        <h4>Methods:</h4>
-                        <p>
-                            Three-dimensional multi-fluid MHD simulations using BATS-R-US code with block-adaptive mesh refinement, 
-                            progressive coarse-to-fine grid modeling, collaboration with University of Michigan on HPC implementation.
-                        </p>
-                    </div>
-                    <div class="project-meta">
-                        <div class="meta-item">
-                            <strong>Duration:</strong> 2020 - Present
-                        </div>
-                        <div class="meta-item">
-                            <strong>Collaborators:</strong> Prof. Merav Opher (BU), Dr. Marc Kornbleuth (BU), University of Michigan HPC Team
-                        </div>
-                        <div class="meta-item">
-                            <strong>Publications:</strong> 
-                            <a href="https://doi.org/10.3847/1538-4357/ad8b4c" target="_blank">Ma et al. 2024 (ApJ, IF 5.4, Q1)</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="project-detailed">
-                <div class="project-header">
-                    <h3>2. Coupling and Evolution Mechanisms of Instabilities in the Heliosheath</h3>
-                    <span class="project-status ongoing">Ongoing</span>
-                    <span class="project-funding">NASA Fellowship Funded</span>
-                </div>
-                <div class="project-content">
-                    <div class="project-description">
-                        <p>
-                            To investigate the generation mechanisms and evolutionary patterns of RT and KH instabilities in the heliosheath, I constructed an automated multi-dimensional simulation analysis pipeline, including spatial slicing, time-series extraction, and quantitative growth rate fitting methods to systematically verify theoretical model predictions. This research breaks from previous limitations that focused only on the heliopause, extending our view deep into the heliosheath interior.
-                        </p>
-                        <h4>Key Findings:</h4>
-                        <ul>
-                            <li>Clarified the physical mechanisms of two types of instabilities: charge exchange forces in the density gradient direction drive RT instability, while velocity shear in the solar wind low-speed region triggers KH instability</li>
-                            <li>Through long-timescale evolution simulations, revealed the periodic evolutionary characteristics from initial coupled growth to later decoupling phases</li>
-                            <li>Demonstrated that these instabilities jointly reshape solar wind structure and magnetic field topology, playing a crucial role in the long-term evolution and gradual opening of the heliotail</li>
-                        </ul>
-                        <h4>Methods:</h4>
-                        <p>
-                            Automated multi-dimensional analysis workflows including spatial slicing, time-series extraction, 
-                            quantitative growth rate fitting, long-duration 3D MHD simulations tracking full evolutionary cycles.
-                        </p>
-                    </div>
-                    <div class="project-meta">
-                        <div class="meta-item">
-                            <strong>Duration:</strong> 2020 - Present
-                        </div>
-                        <div class="meta-item">
-                            <strong>Collaborators:</strong> Prof. Merav Opher (BU), Dr. Marc Kornbleuth (BU)
-                        </div>
-                        <div class="meta-item">
-                            <strong>Publications:</strong> 
-                            <a href="https://doi.org/10.3847/1538-4357/ad8b4c" target="_blank">Ma et al. 2024 (ApJ, IF 5.4, Q1)</a>, 
-                            <a href="https://doi.org/10.3847/1538-4357/ad9b9c" target="_blank">Ma et al. 2025 (ApJ, IF 5.4, Q1)</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="project-detailed">
-                <div class="project-header">
-                    <h3>3. Cross-Scale Energy Cascade Mechanisms in Magnetohydrodynamic Turbulence</h3>
-                    <span class="project-status ongoing">Ongoing</span>
-                    <span class="project-funding">NASA Fellowship Funded</span>
-                </div>
-                <div class="project-content">
-                    <div class="project-description">
-                        <p>
-                            Addressing the key scientific question of how large-scale instabilities in the heliosheath develop into small-scale turbulence, I further utilized the MHD simulation results to construct computational workflows for magnetic field power spectra and kurtosis, quantitatively characterizing the temporal evolution of turbulent energy cascade and intermittency.
-                        </p>
-                        <h4>Key Findings:</h4>
-                        <ul>
-                            <li>First established a continuous physical picture from large-scale instabilities to small-scale turbulence in the heliosheath interior</li>
-                            <li>Revealed the complex coupling between magnetic field structures and plasma dynamics</li>
-                            <li>Provided new microphysical foundations for predicting the energy spectra and distribution of energetic neutral atoms in the heliosphere</li>
-                        </ul>
-                        <h4>Methods:</h4>
-                        <p>
-                            Power spectral analysis of magnetic field fluctuations, kurtosis calculations to quantify intermittency, 
-                            collaboration with University of Alabama on turbulence analysis workflows.
-                        </p>
-                    </div>
-                    <div class="project-meta">
-                        <div class="meta-item">
-                            <strong>Duration:</strong> 2022 - Present
-                        </div>
-                        <div class="meta-item">
-                            <strong>Collaborators:</strong> Prof. Merav Opher (BU), Dr. Marc Kornbleuth (BU), University of Alabama Collaboration
-                        </div>
-                        <div class="meta-item">
-                            <strong>Publications:</strong> 
-                            Manuscript in preparation for <em>The Astrophysical Journal</em>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Past Projects -->
-    <section class="section">
-        <div class="container">
-            <h2 class="section-title">Past Projects</h2>
-            <div class="card-grid">
-                <div class="card">
-                    <h3>Solar Wind Dynamic Pressure Effects on Magnetospheric Electrons</h3>
-                    <p class="project-period">2018 - 2020 | Peking University</p>
+            <header class="page-header">
+                <h1>My Research</h1>
+                <div class="page-intro-box">
                     <p>
-                        Conducted statistical studies of energetic electron drift echoes and phase space density dynamics 
-                        in Earth's magnetosphere in response to solar wind dynamic pressure variations. Developed automated 
-                        event detection algorithms and applied Superposed Epoch Analysis techniques.
+                        My research focuses on exploring plasma instabilities and turbulence in various magnetized plasma environments through three-dimensional magnetohydrodynamic simulations and observations. Currently, I investigate the full evolutionary cycles of Rayleigh–Taylor and Kelvin–Helmholtz instabilities in heliosphere: their initial coupling, quasi-periodic evolution, and nonlinear saturation phases that drive the transition from coherent structures to fully developed turbulence.
                     </p>
-                    <div class="project-tags">
-                        <span class="tag">Statistical Analysis</span>
-                        <span class="tag">Van Allen Probes</span>
-                        <span class="tag">Magnetosphere</span>
-                        <span class="tag">Superposed Epoch Analysis</span>
-                    </div>
                 </div>
-                
-                <div class="card">
-                    <h3>Warm Plasma Cloak Dynamics and Forecasting</h3>
-                    <p class="project-period">2019 | UCLA (Visiting Scholar)</p>
+                <p class="keywords"><strong>Keywords:</strong> <span class="highlight">Plasma instabilities</span> • <span class="highlight">Plasma turbulence</span> • <span class="highlight">Magnetohydrodynamical simulations</span></p>
+            </header>
+
+            <!-- Research Overview -->
+            <section class="research-overview">
+                <h2 class="section-title">Research Overview</h2>
+                <div class="overview-content-box">
                     <p>
-                        Developed neural network models for forecasting plasmaspheric electron density and explored 
-                        2D spatial modeling of the warm plasma cloak. Achieved 97% accuracy for quiet periods and 
-                        90% for disturbed periods.
+                        My doctoral research in Professor Merav Opher's group at Boston University and the SHIELD (Solar-wind with Hydrogen Ion Exchange and Large-scale Dynamics) Drive Center focuses on plasma instabilities and turbulence in the heliosheath. I contributed to developing a three-dimensional MHD model with block-adaptive mesh refinement on HPC clusters, collaborating with the University of Michigan. I revealed that charge exchange forces drive Rayleigh-Taylor instability while velocity shear triggers Kelvin-Helmholtz instability and demonstrated their periodic evolution from coupled growth to decoupling phases. I further collaborated with University of Alabama to develop power spectra and kurtosis workflows to track energy cascade from large-scale instabilities to fully developed turbulence.
                     </p>
-                    <div class="project-tags">
-                        <span class="tag">Machine Learning</span>
-                        <span class="tag">Neural Networks</span>
-                        <span class="tag">Plasmasphere</span>
-                    </div>
-                </div>
-                
-                <div class="card">
-                    <h3>Substorm Response to Interplanetary Shocks</h3>
-                    <p class="project-period">2016 - 2018 | Peking University</p>
                     <p>
-                        Performed statistical analysis of intense substorm occurrences following interplanetary shock impacts, 
-                        examining the role of IMF orientation and solar wind conditions in triggering magnetospheric substorms. 
-                        Applied automated event detection and statistical methods.
+                        During my master's and undergraduate research at Peking University, I conducted statistical analysis of multi-satellite data investigating magnetospheric responses to solar wind variations, developing automated event detection algorithms and applying Superposed Epoch Analysis. This resulted in two first-author publications in <em>Journal of Geophysical Research: Space Physics</em> and provided practical experience with large-scale observational datasets applicable to solar remote-sensing data.
                     </p>
-                    <div class="project-tags">
-                        <span class="tag">Substorms</span>
-                        <span class="tag">IMF</span>
-                        <span class="tag">Statistical Study</span>
+                </div>
+            </section>
+
+            <!-- Current Research Projects -->
+            <section class="current-projects">
+                <h2 class="section-title">Current Research Projects</h2>
+                
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Instabilities along the Axis of the Heliospheric Jets</h3>
+                        <span class="project-status completed">Completed</span>
+                    </div>
+                    <div class="project-body">
+                        <div class="project-image">
+                            <img src="images/heliospheric-jets.png" alt="Heliospheric jets instabilities" onerror="this.style.display='none'">
+                        </div>
+                        <div class="project-content">
+                            <div class="project-overview-box">
+                                <p>This project focuses on discovering and characterizing plasma instabilities in the heliosheath, the region between the termination shock and the heliopause, providing new insights into how instabilities influence global heliospheric dynamics.</p>
+                            </div>
+                            <h4 class="contributions-title">Key Contributions</h4>
+                            <ul class="contributions-list">
+                                <li>Developed a two-stage modeling strategy that first obtains a coarse-grid steady state and then switches to fine-grid time-domain simulations, enabling precise identification of instability onset conditions in the heliosheath.</li>
+                                <li>Revealed for the first time that magnetic tension and charge exchange act together to decelerate the solar wind, creating a distinct and stable low-speed region that provides the necessary conditions for RT/KH instability growth.</li>
+                                <li>Extended the focus from the heliopause into the heliosheath interior, showing that velocity shear formed within the low-speed region triggers Kelvin–Helmholtz instability inside the heliosheath.</li>
+                            </ul>
+                            <div class="project-links">
+                                <a href="https://iopscience.iop.org/article/10.3847/1538-4357/ad93a5" target="_blank" class="btn btn-small">Ma et al. 2024 (ApJ)</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Research Methods -->
-    <section class="section bg-light">
-        <div class="container">
-            <h2 class="section-title">Research Methods & Tools</h2>
-            <div class="methods-grid">
-                <div class="method-card">
-                    <div class="method-icon">🖥️</div>
-                    <h3>Numerical Modeling</h3>
-                    <ul>
-                        <li>3D MHD simulations (BATS-R-US)</li>
-                        <li>Multi-ion plasma modeling</li>
-                        <li>High-performance computing (HPC)</li>
-                        <li>Block-adaptive mesh refinement</li>
-                        <li>Progressive grid resolution strategies</li>
-                    </ul>
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>The Coupling and Evolution of Kelvin–Helmholtz and Rayleigh–Taylor Instabilities in the Heliosheath</h3>
+                        <span class="project-status completed">Completed</span>
+                    </div>
+                    <div class="project-body">
+                        <div class="project-image">
+                            <img src="images/instability-coupling.png" alt="RT-KH coupling evolution" onerror="this.style.display='none'">
+                        </div>
+                        <div class="project-content">
+                            <div class="project-overview-box">
+                                <p>This project examines the long-timescale evolution and interaction of Rayleigh–Taylor (RT) and Kelvin–Helmholtz (KH) instabilities in the heliosheath. I identified their coupled development and their role in reshaping the heliospheric tail.</p>
+                            </div>
+                            <h4 class="contributions-title">Key Contributions</h4>
+                            <ul class="contributions-list">
+                                <li>Built an automated multi-dimensional analysis pipeline combining spatial slicing, time-series extraction, and least-squares growth-rate estimation for systematic instability diagnostics.</li>
+                                <li>Identified periodic recurrence of charge-exchange–driven RT and velocity-shear–driven KH instabilities in long-timescale simulations, with each cycle evolving from coupled growth to later decoupling.</li>
+                                <li>Demonstrated that this cyclic RT–KH evolution continuously reshapes solar-wind flows and magnetic-field topology, playing a critical role in the long-term evolution and gradual opening of the heliospheric tail.</li>
+                            </ul>
+                            <div class="project-links">
+                                <a href="https://iopscience.iop.org/article/10.3847/1538-4357/ade881" target="_blank" class="btn btn-small">Ma et al. 2025 (ApJ)</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                
-                <div class="method-card">
-                    <div class="method-icon">📊</div>
-                    <h3>Data Analysis</h3>
-                    <ul>
-                        <li>Multi-satellite data processing (Van Allen Probes, Voyager)</li>
-                        <li>Power spectral analysis of turbulence</li>
-                        <li>Kurtosis analysis for intermittency</li>
-                        <li>Statistical methods & Superposed Epoch Analysis</li>
-                        <li>Automated event detection algorithms</li>
-                    </ul>
-                </div>
-                
-                <div class="method-card">
-                    <div class="method-icon">💻</div>
-                    <h3>Programming</h3>
-                    <ul>
-                        <li>Python (NumPy, SciPy, Matplotlib, Pandas)</li>
-                        <li>IDL for data visualization</li>
-                        <li>Fortran for MHD codes</li>
-                        <li>Linux/Unix systems & HPC clusters</li>
-                        <li>Automated analysis pipelines</li>
-                    </ul>
-                </div>
-                
-                <div class="method-card">
-                    <div class="method-icon">🤖</div>
-                    <h3>Machine Learning</h3>
-                    <ul>
-                        <li>Neural network development</li>
-                        <li>Time series forecasting</li>
-                        <li>Pattern recognition</li>
-                        <li>TensorFlow/Keras</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Collaborators -->
-    <section class="section">
-        <div class="container">
-            <h2 class="section-title">Collaborators</h2>
-            <div class="collaborators-grid">
-                <div class="collaborator-card">
-                    <h3>Prof. Merav Opher</h3>
-                    <p class="affiliation">Boston University</p>
-                    <p>Ph.D. Advisor - Heliosphere dynamics and plasma physics</p>
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Instability-Driven Turbulence in the Heliosheath</h3>
+                        <span class="project-status ongoing">Ongoing</span>
+                    </div>
+                    <div class="project-body">
+                        <div class="project-image">
+                            <img src="images/turbulence-heliosheath.png" alt="Heliosheath turbulence" onerror="this.style.display='none'">
+                        </div>
+                        <div class="project-content">
+                            <div class="project-overview-box">
+                                <p>This project investigates how large-scale heliosheath instabilities generate small-scale turbulence. By quantifying energy cascade and intermittency evolution, I established the framework linking these instabilities to developed turbulence in the heliosheath.</p>
+                            </div>
+                            <h4 class="contributions-title">Key Contributions</h4>
+                            <ul class="contributions-list">
+                                <li>Built automated workflows to compute magnetic-field power spectra and kurtosis from MHD simulations, enabling quantitative tracking of energy cascade and intermittency.</li>
+                                <li>Established the physical picture from large-scale RT and KH instabilities to small-scale turbulence within the inner region of the heliosphere, reflecting the complex coupling between the magnetic field structure and plasma dynamics, providing insight essential for predicting heliospheric ENA signatures and cosmic-ray modulation.</li>
+                            </ul>
+                            <div class="project-links">
+                                <span class="text-link">Ma et al. 2026 (in preparation)</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                
-                <div class="collaborator-card">
-                    <h3>Dr. Marc Kornbleuth</h3>
-                    <p class="affiliation">Boston University</p>
-                    <p>Research collaborator - MHD simulations and instability theory</p>
-                </div>
-                
-                <div class="collaborator-card">
-                    <h3>Prof. Qiugang Zong</h3>
-                    <p class="affiliation">Peking University</p>
-                    <p>Master's Advisor - Magnetospheric physics and particle dynamics</p>
-                </div>
-                
-                <div class="collaborator-card">
-                    <h3>Prof. Jacob Bortnik</h3>
-                    <p class="affiliation">UCLA</p>
-                    <p>Visiting scholar host - Plasmasphere dynamics and machine learning applications</p>
-                </div>
-                
-                <div class="collaborator-card">
-                    <h3>University of Michigan</h3>
-                    <p class="affiliation">Collaboration Partner</p>
-                    <p>HPC implementation and BATS-R-US code development</p>
-                </div>
-                
-                <div class="collaborator-card">
-                    <h3>University of Alabama</h3>
-                    <p class="affiliation">Collaboration Partner</p>
-                    <p>Turbulence analysis workflows and power spectra methods</p>
-                </div>
-            </div>
-        </div>
-    </section>
+            </section>
 
-    <!-- Footer -->
+            <!-- Past Projects -->
+            <section class="past-projects">
+                <h2 class="section-title">Past Projects</h2>
+                
+                <div class="project-card compact">
+                    <div class="project-header">
+                        <h3>Research on Development of Rayleigh-Taylor-Like Driven Instability in Heliosheath with a Multi-Ion Treatment</h3>
+                        <span class="project-status completed">Completed</span>
+                    </div>
+                    <div class="project-body">
+                        <p class="project-description">
+                            This study applied a multi-ion (MI) MHD model, treating thermal solar wind ions and pickup ions (PUIs) as separate fluids, to investigate the impact of PUIs on Rayleigh–Taylor instability. By calculating growth rates in the MI model and comparing them with single-ion (SI) model results, it revealed differences in instability behavior and quantified the role of PUIs in modifying RT instability.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="project-card compact">
+                    <div class="project-header">
+                        <h3>The Intense Substorm Incidence in Response to Interplanetary Shock Impacts and Influence on Energetic Electron Fluxes at Geosynchronous Orbit</h3>
+                        <span class="project-status completed">Completed</span>
+                    </div>
+                    <div class="project-body">
+                        <p class="project-description">
+                            This study examined how interplanetary shocks trigger magnetospheric substorms and alter high-energy electron flux in geosynchronous orbits. Using 20+ years of data, it quantified shock impacts on substorm intensity and electron response, revealing the causal chain from shocks to substorms to electron dynamics. The results provide key insights for space weather forecasting and satellite protection.
+                        </p>
+                        <div class="project-links">
+                            <a href="https://doi.org/10.1029/2018JA026115" target="_blank" class="text-link">View Publication (JGR 2019) →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card compact">
+                    <div class="project-header">
+                        <h3>Energetic Electron Enhancement and Dropout Echoes Induced by Solar Wind Dynamic Pressure Decrease: The Effect of Phase Space Density Profile</h3>
+                        <span class="project-status completed">Completed</span>
+                    </div>
+                    <div class="project-body">
+                        <p class="project-description">
+                            This study revealed the mechanism behind high-energy electron enhancement and loss triggered by decreases in solar wind dynamic pressure. It highlighted the key role of phase space density distribution and showed that its peak location across L-shells determines the direction of radial diffusion, producing electron enhancement or loss. These findings provide new insights into radiation belt electron dynamics.
+                        </p>
+                        <div class="project-links">
+                            <a href="https://doi.org/10.1029/2020JA028863" target="_blank" class="text-link">View Publication (JGR 2021) →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card compact">
+                    <div class="project-header">
+                        <h3>Forecasting Warm Plasma Cloak Particle Dynamics in the Inner Magnetosphere Using Machine Learning</h3>
+                        <span class="project-status completed">Completed</span>
+                    </div>
+                    <div class="project-body">
+                        <p class="project-description">
+                            This study developed neural network models to forecast plasma distributions from satellite time-series data. By creating a 2D spatial model of warm plasma cloak particle distributions and visualizing their temporal evolution, it provided deeper insight into magnetospheric dynamics.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Research Methods & Skills -->
+            <section class="research-methods">
+                <h2 class="section-title">Research Methods & Skills</h2>
+                <div class="methods-horizontal">
+                    <div class="method-row">
+                        <div class="method-label">Numerical Modeling:</div>
+                        <div class="method-items">
+                            3D MHD simulations (BATS-R-US) • Multi-ion plasma modeling • Block-adaptive mesh refinement • Progressive grid resolution strategies • High-performance computing (HPC)
+                        </div>
+                    </div>
+                    <div class="method-row">
+                        <div class="method-label">Data Analysis:</div>
+                        <div class="method-items">
+                            Multi-satellite data processing • Power spectral analysis • Kurtosis analysis for intermittency • Superposed Epoch Analysis • Automated event detection algorithms
+                        </div>
+                    </div>
+                    <div class="method-row">
+                        <div class="method-label">Programming Tools:</div>
+                        <div class="method-items">
+                            Python (NumPy, SciPy, Matplotlib, Pandas) • IDL for data visualization • Fortran for MHD codes • Linux/Unix systems & HPC clusters • Machine Learning (TensorFlow/Keras)
+                        </div>
+                    </div>
+                    <div class="method-row">
+                        <div class="method-label">Research Capabilities:</div>
+                        <div class="method-items">
+                            Automated analysis pipeline development • Large-scale observational data processing • Statistical modeling & analysis • Scientific visualization • Cross-institutional collaboration
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Research Collaborations -->
+            <section class="collaborations">
+                <h2 class="section-title">Research Collaborations</h2>
+                <div class="shield-center-box">
+                    <div class="shield-header">
+                        <h3>SHIELD NASA DRIVE Center</h3>
+                        <p class="shield-subtitle">Solar wind with Hydrogen Ion charge Exchange and Large-Scale Dynamics</p>
+                    </div>
+                    <div class="shield-content">
+                        <p>
+                            I am a member of the <strong>SHIELD NASA DRIVE Center</strong>, a national and international collaboration involving researchers from over half a dozen institutions, led by Merav Opher from the Astronomy Department at Boston University.
+                        </p>
+                        <p>
+                            During my Ph.D., I have worked in close collaboration with SHIELD researchers from the <strong>University of Michigan</strong> and the <strong>University of Alabama in Huntsville</strong>, contributing to our collective understanding of heliospheric dynamics and plasma physics.
+                        </p>
+                    </div>
+                    <div class="shield-link">
+                        <a href="https://shielddrivecenter.com/" target="_blank" class="btn btn-primary">
+                            Visit SHIELD Center Website →
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
     <footer class="footer">
-        <div class="container">
+        <div class="container footer-container">
             <div class="footer-content">
-                <div class="footer-info">
-                    <h3>Xiaohan Ma</h3>
-                    <p>Ph.D. Candidate in Astronomy</p>
-                    <p>Boston University</p>
-                    <p>Email: xhma@bu.edu</p>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>📧 xhma@bu.edu</p>
                 </div>
-                <div class="footer-links">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="research.html">Research</a></li>
-                        <li><a href="publications.html">Publications</a></li>
-                        <li><a href="cv.html">CV</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-social">
-                    <h4>Connect</h4>
-                    <div class="social-links">
-                        <a href="https://orcid.org/0000-0003-0007-757X" target="_blank" aria-label="ORCID">
-                            <span>ORCID</span>
-                        </a>
-                        <a href="https://scholar.google.com/" target="_blank" aria-label="Google Scholar">
-                            <span>Scholar</span>
-                        </a>
-                        <a href="https://github.com/Fuyuhi-Pluto" target="_blank" aria-label="GitHub">
-                            <span>GitHub</span>
-                        </a>
-                    </div>
+                <div class="footer-section">
+                    <h4>Academic Profiles</h4>
+                    <p><a href="https://scholar.google.com/" target="_blank">Google Scholar</a></p>
+                    <p><a href="https://orcid.org/0000-0003-0007-757X" target="_blank">ORCID</a></p>
                 </div>
             </div>
             <div class="footer-bottom">
