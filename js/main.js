@@ -17,6 +17,8 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // 导航栏滚动效果
     initNavbarScroll();
+
+    initImageZoom();
 });
 
 /**
@@ -469,10 +471,4 @@ function initImageZoom() {
     });
 }
 
-// 在DOMContentLoaded中调用
-document.addEventListener('DOMContentLoaded', function() {
-    // ...现有代码...
-    
-    // 添加这一行
-    initImageZoom();
-});
+
