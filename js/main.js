@@ -418,3 +418,61 @@ style.textContent = `
     }
 `;
 document.head.appendChild(style);
+/**
+ * 图片点击放大功能
+ */
+function initImageZoom() {
+    // 创建模态框
+    const modal = document.createElement('div');
+    modal.className = 'image-modal';
+    modal.innerHTML = `
+        <span class="image-modal-close">&times;</span>
+        <img src="" alt="放大图片">
+    `;
+    document.body.appendChild(modal);
+    
+    const modalImg = modal.querySelector('img');
+    const closeBtn = modal.querySelector('.image-modal-close');
+    
+    // 为所有项目图片添加点击事件
+    const projectImages = document.querySelectorAll('.project-image img');
+    
+    projectImages.forEach(img => {
+        img.addEventListener('click', function() {
+            if (this.src && !this.src.includes('placeholder')) {
+                modal.classList.add('active');
+                modalImg.src = this.src;
+                modalImg.alt = this.alt;
+                document.body.style.overflow = 'hidden'; // 防止背景滚动
+            }
+        });
+    });
+    
+    // 关闭模态框
+    function closeModal() {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+    
+    closeBtn.addEventListener('click', closeModal);
+    modal.addEventListener('click', function(e) {
+        if (e.target === modal || e.target === modalImg) {
+            closeModal();
+        }
+    });
+    
+    // ESC键关闭
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && modal.classList.contains('active')) {
+            closeModal();
+        }
+    });
+}
+
+// 在DOMContentLoaded中调用
+document.addEventListener('DOMContentLoaded', function() {
+    // ...现有代码...
+    
+    // 添加这一行
+    initImageZoom();
+});
