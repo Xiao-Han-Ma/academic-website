@@ -825,40 +825,21 @@ section {
     gap: var(--spacing-md);
 }
 
-/* .project-image {
-    border-radius: 8px;
-    overflow: hidden;
-    background: var(--bg-light);
-}
-
-.project-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-} */
-
+/* Project Image - 完整显示所有内容 */
 .project-image {
     width: 100%;
     max-width: 400px;
-    position: relative;
-    overflow: hidden;
+    margin-right: 2rem;
     border-radius: 8px;
-}
-
-.project-image::before {
-    content: '';
-    display: block;
-    padding-top: 133.33%;  /* 3:4 比例 */
+    overflow: hidden;
 }
 
 .project-image img {
-    position: absolute;
-    top: 0;
-    left: 0;
     width: 100%;
-    height: 100%;
-    object-fit: contain;  /* 完整显示，可能有空白 */
+    height: auto;              /* 自动高度，保持原始比例 */
+    display: block;
     border-radius: 8px;
+    object-fit: contain;       /* 完整显示，不裁剪 */
 }
 
 .project-description {
