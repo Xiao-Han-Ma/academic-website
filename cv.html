@@ -6,7 +6,7 @@
     <meta name="description" content="Beyond Research - Xiaohan Ma's life outside academia">
     <title>Beyond Research - Xiaohan Ma</title>
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/mobile-nav-styles.css">
+    <link rel="stylesheet" href="css/mobile-nav-style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@300;400;600&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -36,70 +36,256 @@
             margin-top: -1.5rem;
         }
         
-        /* Skills Tag Cloud */
-        .skills-cloud {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
+        /* Skills and Projects Container */
+        .skills-projects-container {
+            display: grid;
+            grid-template-columns: 1fr 400px;
+            gap: 3rem;
             margin: 2rem 0;
+            align-items: start;
+        }
+        
+        .projects-column {
+            flex: 1;
+        }
+        
+        .skills-cloud-column {
+            position: sticky;
+            top: 100px;
+        }
+        
+        .skills-cloud-container {
+            background: linear-gradient(135deg, #f8f5f0 0%, #fdfcfb 100%);
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
             padding: 2rem;
-            background: white;
-            border-radius: 12px;
-            border: 1px solid var(--border-color);
+            /* 4:3 比例 - 宽400px，高300px */
+            width: 400px;
+            height: 300px;
+            box-shadow: var(--shadow-sm);
         }
         
-        .skill-tag-large {
-            padding: 0.75rem 1.5rem;
-            background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
-            color: white;
-            border-radius: 25px;
-            font-size: 1rem;
+        /* Skills Bubble Cloud - Floating Animation */
+        .skills-cloud {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            /* 减去padding后的实际高度：300px - 4rem = 236px */
+        }
+        
+        .skill-bubble {
+            position: absolute;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            border-radius: 50%;
             font-weight: 500;
-            transition: var(--transition);
             cursor: default;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            animation: float 6s ease-in-out infinite;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
         
-        .skill-tag-large:hover {
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-md);
+        /* Floating Animation - Reduced range to prevent overlap */
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px) translateX(0px);
+            }
+            25% {
+                transform: translateY(-8px) translateX(3px);
+            }
+            50% {
+                transform: translateY(-5px) translateX(-3px);
+            }
+            75% {
+                transform: translateY(-6px) translateX(2px);
+            }
         }
         
-        .skill-tag-medium {
-            padding: 0.625rem 1.25rem;
-            background: var(--accent-light);
-            color: var(--text-dark);
-            border-radius: 20px;
-            font-size: 0.9375rem;
+        .skill-bubble:hover {
+            transform: scale(1.15) !important;
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+            z-index: 100;
+            animation-play-state: paused;
         }
         
-        .skill-tag-small {
-            padding: 0.5rem 1rem;
-            background: var(--bg-light);
-            color: var(--text-medium);
-            border: 1px solid var(--border-color);
-            border-radius: 15px;
+        /* Expert Level - Largest bubbles (缩小到100x100) */
+        .skill-bubble.expert {
+            width: 100px;
+            height: 100px;
             font-size: 0.875rem;
+            padding: 0.875rem;
+            background: linear-gradient(135deg, #1a4d7a 0%, #2a6ca8 100%);
+            color: white;
+            line-height: 1.25;
         }
         
-        /* Project Cards */
+        /* Expert #1 - Python */
+        .skill-bubble.expert:nth-of-type(1) {
+            top: 5px;
+            left: 5px;
+        }
+        
+        /* Expert #2 - Data Analysis */
+        .skill-bubble.expert:nth-of-type(2) {
+            top: 5px;
+            right: 5px;
+        }
+        
+        /* Expert #3 - Machine Learning */
+        .skill-bubble.expert:nth-of-type(3) {
+            top: 140px;
+            left: 130px;
+        }
+        
+        /* Advanced Level - Large bubbles (缩小到80x80) */
+        .skill-bubble.advanced {
+            width: 80px;
+            height: 80px;
+            font-size: 0.8125rem;
+            padding: 0.75rem;
+            background: linear-gradient(135deg, #d4a574 0%, #e8c9a0 100%);
+            color: #1a1a1a;
+            line-height: 1.2;
+        }
+        
+        /* Advanced #4 - Feature Engineering */
+        .skill-bubble.advanced:nth-of-type(4) {
+            top: 115px;
+            left: 5px;
+        }
+        
+        /* Advanced #5 - Regression Analysis */
+        .skill-bubble.advanced:nth-of-type(5) {
+            top: 145px;
+            right: 35px;
+        }
+        
+        /* Advanced #6 - XGBoost */
+        .skill-bubble.advanced:nth-of-type(6) {
+            top: 55px;
+            right: 115px;
+        }
+        
+        /* Advanced #7 - Full-Stack Development */
+        .skill-bubble.advanced:nth-of-type(7) {
+            top: 155px;
+            left: 250px;
+        }
+        
+        /* Advanced #8 - LLM */
+        .skill-bubble.advanced:nth-of-type(8) {
+            top: 55px;
+            left: 115px;
+        }
+        
+        /* Intermediate Level - Medium bubbles (缩小到65x65) */
+        .skill-bubble.intermediate {
+            width: 65px;
+            height: 65px;
+            font-size: 0.75rem;
+            padding: 0.625rem;
+            background: white;
+            color: #1a4d7a;
+            border: 2px solid #2a6ca8;
+            line-height: 1.15;
+        }
+        
+        /* Intermediate #9 - Prompt Engineering */
+        .skill-bubble.intermediate:nth-of-type(9) {
+            top: 200px;
+            left: 5px;
+        }
+        
+        /* Intermediate #10 - NLP */
+        .skill-bubble.intermediate:nth-of-type(10) {
+            top: 115px;
+            left: 95px;
+        }
+        
+        /* Intermediate #11 - AutoGluon */
+        .skill-bubble.intermediate:nth-of-type(11) {
+            top: 200px;
+            left: 80px;
+        }
+        
+        /* Intermediate #12 - Decision Trees */
+        .skill-bubble.intermediate:nth-of-type(12) {
+            top: 115px;
+            right: 185px;
+        }
+        
+        /* Intermediate #13 - Sentiment Analysis */
+        .skill-bubble.intermediate:nth-of-type(13) {
+            top: 200px;
+            right: 95px;
+        }
+        
+        /* Intermediate #14 - Web Development */
+        .skill-bubble.intermediate:nth-of-type(14) {
+            top: 10px;
+            left: 200px;
+        }
+        
+        /* Proficient Level - Small bubbles (缩小到55x55) */
+        .skill-bubble.proficient {
+            width: 55px;
+            height: 55px;
+            font-size: 0.6875rem;
+            padding: 0.5rem;
+            background: #fdfcfb;
+            color: #4a4a4a;
+            border: 1px solid #e0ddd8;
+            line-height: 1.1;
+        }
+        
+        /* Proficient #15 - SVM */
+        .skill-bubble.proficient:nth-of-type(15) {
+            top: 115px;
+            left: 175px;
+        }
+        
+        /* Proficient #16 - PCA */
+        .skill-bubble.proficient:nth-of-type(16) {
+            top: 55px;
+            right: 40px;
+        }
+        
+        /* Proficient #17 - Network Analysis */
+        .skill-bubble.proficient:nth-of-type(17) {
+            top: 200px;
+            left: 160px;
+        }
+        
+        /* Proficient #18 - Data Visualization */
+        .skill-bubble.proficient:nth-of-type(18) {
+            top: 200px;
+            right: 15px;
+        }
+        
+        /* Projects Grid */
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin: 2rem 0;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
         }
         
+        /* Project Cards - Clickable */
         .project-mini-card {
             background: white;
             padding: 1.5rem;
             border-radius: 12px;
             border: 1px solid var(--border-color);
             transition: var(--transition);
+            cursor: pointer;
+            position: relative;
         }
         
         .project-mini-card:hover {
             box-shadow: var(--shadow-md);
             transform: translateY(-4px);
+            border-color: var(--primary-color);
         }
         
         .project-skills {
@@ -116,6 +302,117 @@
             border-radius: 12px;
             font-size: 0.75rem;
             font-weight: 500;
+        }
+        
+        .project-card-title {
+            color: var(--primary-color);
+            font-size: 1.125rem;
+            margin: 0;
+            line-height: 1.4;
+        }
+        
+        /* Project Modal */
+        .project-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 10000;
+            overflow-y: auto;
+            padding: 2rem;
+        }
+        
+        .project-modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .project-modal-content {
+            background: white;
+            max-width: 800px;
+            width: 100%;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 0 50px rgba(255, 255, 255, 0.3);
+            animation: modalZoomIn 0.3s ease;
+        }
+        
+        .project-modal-header {
+            padding: 2.5rem 2.5rem 1.5rem;
+            background: linear-gradient(135deg, #f8f5f0 0%, #fdfcfb 100%);
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .project-modal-title {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .project-modal-skills {
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }
+        
+        .project-modal-skills .project-skill-badge {
+            padding: 0.375rem 1rem;
+            font-size: 0.875rem;
+        }
+        
+        .project-modal-body {
+            padding: 2.5rem;
+        }
+        
+        .project-modal-text {
+            font-size: 1.0625rem;
+            line-height: 1.8;
+            color: var(--text-dark);
+        }
+        
+        .project-modal-text p {
+            margin-bottom: 1rem;
+        }
+        
+        .project-modal-text ul {
+            margin: 1rem 0 1rem 2rem;
+            line-height: 1.8;
+        }
+        
+        .project-modal-text li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .project-modal-text strong {
+            color: var(--primary-color);
+        }
+        
+        .project-modal-close {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            font-size: 3rem;
+            color: white;
+            cursor: pointer;
+            z-index: 10001;
+            transition: var(--transition);
+            background: rgba(0, 0, 0, 0.5);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 1;
+        }
+        
+        .project-modal-close:hover {
+            background: var(--primary-color);
+            transform: rotate(90deg);
         }
         
         /* Leadership Timeline */
@@ -369,9 +666,149 @@
                 font-size: 1rem;
             }
             
+            .skills-projects-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .skills-cloud-column {
+                position: static;
+            }
+            
+            .skills-cloud-container {
+                /* 移动端4:3比例 - 宽度100%，高度自适应 */
+                width: 100%;
+                height: auto;
+                aspect-ratio: 4 / 3;
+                min-height: 250px;
+                padding: 1.5rem;
+            }
+            
             .skills-cloud {
-                padding: 1rem;
-                gap: 0.5rem;
+                min-height: auto;
+                height: 100%;
+            }
+            
+            /* Adjust bubble positions for smaller screen */
+            .skill-bubble.expert {
+                width: 70px;
+                height: 70px;
+                font-size: 0.75rem;
+                padding: 0.5rem;
+            }
+            
+            .skill-bubble.advanced {
+                width: 58px;
+                height: 58px;
+                font-size: 0.6875rem;
+                padding: 0.5rem;
+            }
+            
+            .skill-bubble.intermediate {
+                width: 48px;
+                height: 48px;
+                font-size: 0.625rem;
+                padding: 0.375rem;
+            }
+            
+            .skill-bubble.proficient {
+                width: 40px;
+                height: 40px;
+                font-size: 0.5625rem;
+                padding: 0.25rem;
+            }
+            
+            /* Reposition bubbles for mobile - No overlap */
+            .skill-bubble.expert:nth-of-type(1) {
+                top: 5px;
+                left: 5px;
+            }
+            
+            .skill-bubble.expert:nth-of-type(2) {
+                top: 5px;
+                right: 5px;
+            }
+            
+            .skill-bubble.expert:nth-of-type(3) {
+                top: 100px;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            
+            .skill-bubble.advanced:nth-of-type(4) {
+                top: 85px;
+                left: 5px;
+            }
+            
+            .skill-bubble.advanced:nth-of-type(5) {
+                top: 100px;
+                right: 60px;
+            }
+            
+            .skill-bubble.advanced:nth-of-type(6) {
+                top: 40px;
+                right: 80px;
+            }
+            
+            .skill-bubble.advanced:nth-of-type(7) {
+                top: 110px;
+                right: 5px;
+            }
+            
+            .skill-bubble.advanced:nth-of-type(8) {
+                top: 40px;
+                left: 80px;
+            }
+            
+            .skill-bubble.intermediate:nth-of-type(9) {
+                top: 160px;
+                left: 5px;
+            }
+            
+            .skill-bubble.intermediate:nth-of-type(10) {
+                top: 85px;
+                left: 70px;
+            }
+            
+            .skill-bubble.intermediate:nth-of-type(11) {
+                top: 160px;
+                left: 60px;
+            }
+            
+            .skill-bubble.intermediate:nth-of-type(12) {
+                top: 85px;
+                right: 140px;
+            }
+            
+            .skill-bubble.intermediate:nth-of-type(13) {
+                top: 160px;
+                right: 60px;
+            }
+            
+            .skill-bubble.intermediate:nth-of-type(14) {
+                top: 10px;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            
+            .skill-bubble.proficient:nth-of-type(15) {
+                top: 100px;
+                left: 125px;
+            }
+            
+            .skill-bubble.proficient:nth-of-type(16) {
+                top: 45px;
+                right: 25px;
+            }
+            
+            .skill-bubble.proficient:nth-of-type(17) {
+                top: 160px;
+                left: 115px;
+            }
+            
+            .skill-bubble.proficient:nth-of-type(18) {
+                top: 160px;
+                right: 15px;
             }
             
             .hobby-modal {
@@ -430,107 +867,6 @@
                 </div>
             </header>
 
-            <!-- Skills & Expertise -->
-            <section class="cv-section">
-                <h2 class="section-title">Skills & Expertise</h2>
-                <p class="section-intro">Using Data and Technology to Better Understand the World</p>
-                
-                <!-- Skills Cloud -->
-                <div class="skills-cloud">
-                    <span class="skill-tag-large">Machine Learning</span>
-                    <span class="skill-tag-large">Python</span>
-                    <span class="skill-tag-medium">Data Analysis</span>
-                    <span class="skill-tag-medium">XGBoost</span>
-                    <span class="skill-tag-medium">LLM</span>
-                    <span class="skill-tag-small">Feature Engineering</span>
-                    <span class="skill-tag-small">Prompt Engineering</span>
-                    <span class="skill-tag-large">Full-Stack Development</span>
-                    <span class="skill-tag-medium">AutoGluon</span>
-                    <span class="skill-tag-small">Regression Analysis</span>
-                    <span class="skill-tag-medium">NLP</span>
-                    <span class="skill-tag-small">Data Visualization</span>
-                    <span class="skill-tag-medium">Sentiment Analysis</span>
-                    <span class="skill-tag-small">Network Analysis</span>
-                    <span class="skill-tag-large">Web Development</span>
-                    <span class="skill-tag-small">PCA</span>
-                    <span class="skill-tag-small">SVM</span>
-                    <span class="skill-tag-medium">Decision Trees</span>
-                </div>
-                
-                <!-- Projects Grid -->
-                <div class="projects-grid">
-                    <div class="project-mini-card">
-                        <div class="project-skills">
-                            <span class="project-skill-badge">LLM</span>
-                            <span class="project-skill-badge">Prompt Eng</span>
-                            <span class="project-skill-badge">Full-Stack</span>
-                        </div>
-                        <h3 style="color: var(--primary-color); margin-bottom: 0.75rem;">AI Emotion Analysis Plugin</h3>
-                        <p style="color: var(--text-medium); font-size: 0.9375rem; line-height: 1.6;">
-                            Utilized Google Gemma 3n for multi-dimensional emotion analysis with Plutchik framework. Built responsive web interface featuring interactive emotion wheel and role-specific AI personas.
-                        </p>
-                    </div>
-                    
-                    <div class="project-mini-card">
-                        <div class="project-skills">
-                            <span class="project-skill-badge">XGBoost</span>
-                            <span class="project-skill-badge">AutoGluon</span>
-                            <span class="project-skill-badge">Feature Selection</span>
-                        </div>
-                        <h3 style="color: var(--primary-color); margin-bottom: 0.75rem;">Crypto Market Price Prediction</h3>
-                        <p style="color: var(--text-medium); font-size: 0.9375rem; line-height: 1.6;">
-                            Achieved R² = 0.9612 using XGBoost regression with AutoGluon optimization. Designed modular feature selection pipeline (SHAP, Lasso RFE, Mutual Information).
-                        </p>
-                    </div>
-                    
-                    <div class="project-mini-card">
-                        <div class="project-skills">
-                            <span class="project-skill-badge">Regression</span>
-                            <span class="project-skill-badge">Feature Eng</span>
-                        </div>
-                        <h3 style="color: var(--primary-color); margin-bottom: 0.75rem;">Music Broadcast Optimization</h3>
-                        <p style="color: var(--text-medium); font-size: 0.9375rem; line-height: 1.6;">
-                            Built logistic regression models to predict optimal music broadcasting strategies. Enhanced audience engagement through feature engineering and data-driven insights.
-                        </p>
-                    </div>
-                    
-                    <div class="project-mini-card">
-                        <div class="project-skills">
-                            <span class="project-skill-badge">SVM</span>
-                            <span class="project-skill-badge">Random Forest</span>
-                            <span class="project-skill-badge">Decision Tree</span>
-                        </div>
-                        <h3 style="color: var(--primary-color); margin-bottom: 0.75rem;">Breast Cancer Malignancy Prediction</h3>
-                        <p style="color: var(--text-medium); font-size: 0.9375rem; line-height: 1.6;">
-                            Compared multiple ML models to classify tumor malignancy. Enhanced diagnostic interpretability through feature importance analysis and visualization.
-                        </p>
-                    </div>
-                    
-                    <div class="project-mini-card">
-                        <div class="project-skills">
-                            <span class="project-skill-badge">NLP</span>
-                            <span class="project-skill-badge">Sentiment Analysis</span>
-                            <span class="project-skill-badge">Network</span>
-                        </div>
-                        <h3 style="color: var(--primary-color); margin-bottom: 0.75rem;">Literary Text Analysis</h3>
-                        <p style="color: var(--text-medium); font-size: 0.9375rem; line-height: 1.6;">
-                            Conducted sentiment analysis and character network construction on Higashino Keigo's works. Revealed narrative complexity through computational text analysis.
-                        </p>
-                    </div>
-                    
-                    <div class="project-mini-card">
-                        <div class="project-skills">
-                            <span class="project-skill-badge">PCA</span>
-                            <span class="project-skill-badge">Decision Tree</span>
-                        </div>
-                        <h3 style="color: var(--primary-color); margin-bottom: 0.75rem;">Tennis Ranking Analysis</h3>
-                        <p style="color: var(--text-medium); font-size: 0.9375rem; line-height: 1.6;">
-                            Applied PCA and decision trees to ATP/WTA top 100 player rankings. Published in 'Data Thinking in Practice' showcasing data-driven sports analytics.
-                        </p>
-                    </div>
-                </div>
-            </section>
-
             <!-- Leadership & Organization -->
             <section class="cv-section">
                 <h2 class="section-title">Leadership & Organization</h2>
@@ -565,6 +901,86 @@
                 </div>
             </section>
 
+            <!-- Skills & Expertise -->
+            <section class="cv-section">
+                <h2 class="section-title">Skills & Expertise</h2>
+                <p class="section-intro">Using Data and Technology to Better Understand the World</p>
+                
+                <!-- Skills and Projects Layout -->
+                <div class="skills-projects-container">
+                    <!-- Projects Grid - Left Side -->
+                    <div class="projects-column">
+                        <div class="projects-grid">
+                            <div class="project-mini-card" data-project="ai-emotion">
+                                <div class="project-skills">
+                                    <span class="project-skill-badge">LLM</span>
+                                    <span class="project-skill-badge">Prompt Eng</span>
+                                </div>
+                                <h3 class="project-card-title">AI Emotion Analysis Plugin</h3>
+                            </div>
+                            
+                            <div class="project-mini-card" data-project="crypto">
+                                <div class="project-skills">
+                                    <span class="project-skill-badge">XGBoost</span>
+                                    <span class="project-skill-badge">AutoGluon</span>
+                                    <span class="project-skill-badge">Feature Selection</span>
+                                </div>
+                                <h3 class="project-card-title">Crypto Market Price Prediction</h3>
+                            </div>
+                            
+                            
+                            <div class="project-mini-card" data-project="literary">
+                                <div class="project-skills">
+                                    <span class="project-skill-badge">NLP</span>
+                                    <span class="project-skill-badge">Sentiment Analysis</span>
+                                </div>
+                                <h3 class="project-card-title">Literary Text Analysis</h3>
+                            </div>
+                            
+                            <div class="project-mini-card" data-project="tennis">
+                                <div class="project-skills">
+                                    <span class="project-skill-badge">PCA</span>
+                                    <span class="project-skill-badge">Decision Tree</span>
+                                </div>
+                                <h3 class="project-card-title">Tennis Ranking Analysis</h3>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Skills Bubble Cloud - Right Side -->
+                    <div class="skills-cloud-column">
+                        <div class="skills-cloud-container">
+                            <div class="skills-cloud">
+                                <!-- Core Skills - Largest -->
+                                <span class="skill-bubble expert" style="animation-delay: 0s;">Python</span>
+                                <span class="skill-bubble expert" style="animation-delay: 0.5s;">Data Analysis</span>
+                                <span class="skill-bubble proficient" style="animation-delay: 0.9s;">Data Visualization</span>
+                                <span class="skill-bubble expert" style="animation-delay: 1s;">Machine Learning</span>
+                                
+                                <!-- Advanced Skills - Large -->
+                                <span class="skill-bubble advanced" style="animation-delay: 0.2s;">Feature Engineering</span>
+                                <span class="skill-bubble advanced" style="animation-delay: 0.7s;">Regression Analysis</span>
+                                <span class="skill-bubble advanced" style="animation-delay: 1.2s;">XGBoost</span>
+                                <span class="skill-bubble advanced" style="animation-delay: 0.9s;">LLM</span>
+                                
+                                <!-- Intermediate Skills - Medium -->
+                                <span class="skill-bubble proficient" style="animation-delay: 0.5s;">SVM</span>
+                                <span class="skill-bubble proficient" style="animation-delay: 1s;">PCA</span>
+                                <span class="skill-bubble intermediate" style="animation-delay: 0.6s;">Decision Trees</span>
+                                <span class="skill-bubble intermediate" style="animation-delay: 0.3s;">Prompt Engineering</span>
+                                
+                                <!-- Proficient Skills - Small -->
+                                <span class="skill-bubble proficient" style="animation-delay: 0.4s;">Network Analysis</span>
+                                <span class="skill-bubble intermediate" style="animation-delay: 0.8s;">NLP</span>
+                                <span class="skill-bubble intermediate" style="animation-delay: 1.3s;">AutoGluon</span>
+                                <span class="skill-bubble intermediate" style="animation-delay: 0.1s;">Web Development</span>                               
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
             <!-- Hobbies & Interests -->
             <section class="cv-section">
                 <h2 class="section-title">Hobbies & Interests</h2>
@@ -577,10 +993,15 @@
                             <img src="images/dragon-boat.jpg" alt="Dragon Boat Racing" onerror="this.style.display='none'; this.parentElement.querySelector('.hobby-icon').style.display='block';">
                             <div class="hobby-icon" style="display:none;">🐉</div>
                         </div>
-                        <span class="hobby-badge">Dragon Boat</span>
                         <div class="hobby-content">
                             <h4 class="hobby-title">Dragon Boat Racing</h4>
-                            <p class="hobby-preview">Team captain with 5+ years of competitive experience, leading crews to championship victories and fostering teamwork through synchronized paddling.</p>
+                            <p class="hobby-preview"><strong>Start learning dragon boats from 2022.</strong></p>
+                            <p class="hobby-preview"><strong>2025 Achievements:</strong></p>
+                            <ul style="color: var(--text-medium); font-size: 0.9375rem; line-height: 1.6; margin-left: 1.5rem;">
+                                <li>Gold medal in B Division of the Boston Dragon Boat Race with Boston 1</li>
+                                <li>Gold medal Hartford Dragon Boat Race with Boston 1</li>
+                                <li>Gold medal Mercer County Dragon Boat Race with Boston BBB women</li>
+                            </ul>
                         </div>
                     </div>
                     
@@ -589,10 +1010,11 @@
                             <img src="images/kendo.jpg" alt="Kendo" onerror="this.style.display='none'; this.parentElement.querySelector('.hobby-icon').style.display='block';">
                             <div class="hobby-icon" style="display:none;">⚔️</div>
                         </div>
-                        <span class="hobby-badge">Kendo</span>
                         <div class="hobby-content">
                             <h4 class="hobby-title">Kendo (Japanese Fencing)</h4>
-                            <p class="hobby-preview">Practicing the way of the sword, combining physical discipline with mental focus and traditional Japanese martial arts philosophy.</p>
+                            <p class="hobby-preview"><strong>Start learning kendo from 2016.</strong></p>
+                            <p class="hobby-preview">3rd Dan (三段)</p>
+                            <p class="hobby-preview" style="font-style: italic; color: var(--primary-color);">Through kendo, I met my boyfriend.</p>
                         </div>
                     </div>
                     
@@ -601,10 +1023,10 @@
                             <img src="images/sports.jpg" alt="Ball Sports" onerror="this.style.display='none'; this.parentElement.querySelector('.hobby-icon').style.display='block';">
                             <div class="hobby-icon" style="display:none;">⚽</div>
                         </div>
-                        <span class="hobby-badge">Ball Sports</span>
                         <div class="hobby-content">
                             <h4 class="hobby-title">Ball Sports</h4>
-                            <p class="hobby-preview">Enthusiast of various ball sports including basketball, volleyball, and badminton, enjoying both competitive play and recreational fitness.</p>
+                            <p class="hobby-preview"><strong>Start learning volleyball from 2013.</strong></p>
+                            <p class="hobby-preview"><strong>Start learning tennis from 2024.</strong></p>
                         </div>
                     </div>
                 </div>
@@ -617,7 +1039,6 @@
                             <img src="images/photography.jpg" alt="Photography" onerror="this.style.display='none'; this.parentElement.querySelector('.hobby-icon').style.display='block';">
                             <div class="hobby-icon" style="display:none;">📷</div>
                         </div>
-                        <span class="hobby-badge">Photography</span>
                         <div class="hobby-content">
                             <h4 class="hobby-title">Photography</h4>
                             <p class="hobby-preview">Capturing moments and landscapes through the lens, exploring visual storytelling and the art of light and composition.</p>
@@ -629,7 +1050,6 @@
                             <img src="images/movies.jpg" alt="Movies" onerror="this.style.display='none'; this.parentElement.querySelector('.hobby-icon').style.display='block';">
                             <div class="hobby-icon" style="display:none;">🎬</div>
                         </div>
-                        <span class="hobby-badge">Cinema</span>
                         <div class="hobby-content">
                             <h4 class="hobby-title">Film & Cinema</h4>
                             <p class="hobby-preview">Passionate cinephile exploring diverse genres and international cinema, appreciating storytelling through the cinematic medium.</p>
@@ -641,7 +1061,6 @@
                             <img src="images/games.jpg" alt="Games" onerror="this.style.display='none'; this.parentElement.querySelector('.hobby-icon').style.display='block';">
                             <div class="hobby-icon" style="display:none;">🎮</div>
                         </div>
-                        <span class="hobby-badge">Gaming</span>
                         <div class="hobby-content">
                             <h4 class="hobby-title">Strategic Gaming</h4>
                             <p class="hobby-preview">Enjoying board games, card games, strategy games, and simulation games—challenging the mind through tactical thinking and creative problem-solving.</p>
@@ -662,6 +1081,20 @@
             <div class="hobby-modal-body">
                 <h2 class="hobby-modal-title" id="modalTitle"></h2>
                 <div class="hobby-modal-text" id="modalText"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Project Modal -->
+    <div class="project-modal" id="projectModal">
+        <span class="project-modal-close">&times;</span>
+        <div class="project-modal-content">
+            <div class="project-modal-header">
+                <h2 class="project-modal-title" id="projectModalTitle"></h2>
+                <div class="project-modal-skills" id="projectModalSkills"></div>
+            </div>
+            <div class="project-modal-body">
+                <div class="project-modal-text" id="projectModalText"></div>
             </div>
         </div>
     </div>
@@ -697,90 +1130,239 @@
             const modalImage = document.getElementById('modalImage');
             const closeBtn = modal.querySelector('.hobby-modal-close');
             
+            // Project Modal Functionality
+            const projectCards = document.querySelectorAll('.project-mini-card');
+            const projectModal = document.getElementById('projectModal');
+            const projectModalTitle = document.getElementById('projectModalTitle');
+            const projectModalSkills = document.getElementById('projectModalSkills');
+            const projectModalText = document.getElementById('projectModalText');
+            const projectCloseBtn = projectModal.querySelector('.project-modal-close');
+            
+            // Project详细内容
+            const projectDetails = {
+                'ai-emotion': {
+                    title: 'AI-Powered Emotion Plugin',
+                    skills: ['LLM', 'Prompt Engineering', 'Full-Stack Development'],
+                    text: `
+                        <p><strong>Project Period:</strong> Jul – Aug 2025</p>
+                        <p><strong>GitHub:</strong> <a href="https://github.com/Fuyuhi-Pluto/gemma3n-emotion-plugin.git" target="_blank" style="color: var(--primary-color);">github.com/Fuyuhi-Pluto/gemma3n-emotion-plugin</a></p>
+                        
+                        <p><strong>Project Overview:</strong></p>
+                        <p>Developed an AI-powered emotion analysis tool that helps people feel "understood" and gain deeper self-awareness through intelligent emotional analysis. The project addresses the universal challenge of expressing and naming our inner emotional world.</p>
+                        
+                        <p><strong>Key Achievements:</strong></p>
+                        <ul>
+                            <li>Utilized Google Gemma 3n LLM for multi-dimensional emotion analysis, including classification, intensity scoring, blended emotion detection, and structured reasoning based on Plutchik's emotion framework</li>
+                            <li>Developed configurable prompt engineering to create role-specific AI personas enabling context-aware dialogue</li>
+                            <li>Built a responsive web interface featuring adaptive inputs, floating encouragements, card-style chats, journal-style emotion visualization, and an interactive Plutchik wheel with hover insights</li>
+                        </ul>
+                        
+                        <p><strong>Technical Skills:</strong> Large Language Models (LLM), Prompt Engineering, Back-End Web Development, Front-End Development</p>
+                    `
+                },
+                'crypto': {
+                    title: 'Crypto Market Price Prediction',
+                    skills: ['XGBoost', 'AutoGluon', 'Feature Selection'],
+                    text: `
+                        <p><strong>Project Period:</strong> Jun – Jul 2025</p>
+                        <p><strong>Competition:</strong> Kaggle DRW Competition</p>
+                        
+                        <p><strong>Project Overview:</strong></p>
+                        <p>Developed a high-performance cryptocurrency market price prediction model achieving exceptional accuracy through advanced machine learning techniques and systematic feature engineering.</p>
+                        
+                        <p><strong>Key Achievements:</strong></p>
+                        <ul>
+                            <li>Benchmarked and tuned multiple candidate models using AutoGluon's automated selection and hyperparameter optimization, leading to an XGBoost-based regression framework achieving <strong>R² = 0.9612</strong></li>
+                            <li>Designed a modular, cache-enabled feature selection pipeline (Mutual Information, F-test, SHAP, Lasso RFE), improving model interpretability and accelerating iteration speed</li>
+                        </ul>
+                        
+                        <p><strong>Technical Skills:</strong> XGBoost, AutoGluon, Feature Selection, Machine Learning, Hyperparameter Optimization, Model Interpretability</p>
+                    `
+                },
+                'literary': {
+                    title: 'Comparative Analysis of Higashino Keigo\'s Works',
+                    skills: ['NLP', 'Sentiment Analysis', 'Network Analysis'],
+                    text: `
+                        <p><strong>Project Period:</strong> Jun – Jul 2018</p>
+                        <p><strong>Works Analyzed:</strong> <em>Journey Under the Midnight Sun</em> and <em>The Mirrored Night</em></p>
+                        
+                        <p><strong>Project Overview:</strong></p>
+                        <p>Conducted computational text analysis on Higashino Keigo's literary works to reveal narrative complexity and character development through data-driven methods.</p>
+                        
+                        <p><strong>Key Achievements:</strong></p>
+                        <ul>
+                            <li><strong>Word Frequency Analysis:</strong> Performed frequency count and categorization of key characters' appearances to assess the depth and richness of their development</li>
+                            <li><strong>Sentiment Analysis:</strong> Conducted sentiment analysis to determine the characteristics of the protagonists, exploring how the author shapes their personalities</li>
+                            <li><strong>Character Relationship Network Construction:</strong> Built character relationship networks to analyze the layers and complexity of interactions between characters, examining how these relationships influence the development of the plot</li>
+                        </ul>
+                        
+                        <p><strong>Technical Skills:</strong> NLP, Sentiment Analysis, Network Analysis, Text Mining, Data Visualization</p>
+                    `
+                },
+                'tennis': {
+                    title: 'Analyzing Professional Tennis Player Rankings with Data Science',
+                    skills: ['PCA', 'Decision Tree'],
+                    text: `
+                        <p><strong>Project Period:</strong> Dec 2017 – Jan 2018</p>
+                        <p><strong>Publication:</strong> 'Data Thinking in Practice (数据思维实践)'</p>
+                        
+                        <p><strong>Project Overview:</strong></p>
+                        <p>Applied data science techniques to understand the factors influencing professional tennis player rankings, with findings published in an academic collection.</p>
+                        
+                        <p><strong>Key Achievements:</strong></p>
+                        <ul>
+                            <li>Applied PCA and factor analysis to classify key performance indicators of ATP/WTA top 100 players</li>
+                            <li>Built a decision tree model to evaluate the impact of technical skills (e.g., serve & return metrics) and mental resilience (e.g., tiebreak performance) on rankings</li>
+                            <li>Research was published in 'Data Thinking in Practice (数据思维实践)', showcasing a data-driven approach to ranking prediction</li>
+                        </ul>
+                        
+                        <p><strong>Technical Skills:</strong> PCA, Decision Trees, Factor Analysis, Sports Analytics, Data-Driven Research</p>
+                    `
+                }
+            };
+            
+            // Project card click handlers
+            projectCards.forEach(card => {
+                card.addEventListener('click', function() {
+                    const projectType = this.dataset.project;
+                    const details = projectDetails[projectType];
+                    
+                    if (details) {
+                        projectModalTitle.textContent = details.title;
+                        
+                        // Clear and populate skills
+                        projectModalSkills.innerHTML = '';
+                        details.skills.forEach(skill => {
+                            const badge = document.createElement('span');
+                            badge.className = 'project-skill-badge';
+                            badge.textContent = skill;
+                            projectModalSkills.appendChild(badge);
+                        });
+                        
+                        projectModalText.innerHTML = details.text;
+                        projectModal.classList.add('active');
+                        document.body.style.overflow = 'hidden';
+                    }
+                });
+            });
+            
+            // Close project modal
+            function closeProjectModal() {
+                projectModal.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+            
+            projectCloseBtn.addEventListener('click', closeProjectModal);
+            projectModal.addEventListener('click', function(e) {
+                if (e.target === projectModal) {
+                    closeProjectModal();
+                }
+            });
+            
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && projectModal.classList.contains('active')) {
+                    closeProjectModal();
+                }
+            });
+            
             // Hobby详细内容
             const hobbyDetails = {
                 'dragon-boat': {
                     title: 'Dragon Boat Racing',
                     image: 'images/dragon-boat.jpg',
                     text: `
-                        <p>Dragon boat racing has been an integral part of my life for over 5 years. As team captain of the PKU Alumni Association - New England Boat Team (2023-2024), I've experienced firsthand the power of synchronized teamwork and collective determination.</p>
+                        <p>I started dragon boat racing in 2022, training and competing with the dragon boat team of PKU Alumni Association - New England for three years. During the 2023-2024 season, I had the honor of serving as team captain, leading our crew to remarkable achievements including third place at the 2023 Springfield race, the 200m alumni championship at the 2024 Boston Dragon Boat Race, and our best-ever 5th place finish in the A Division 500m race.</p>
                         
-                        <p>What draws me to dragon boat racing is the perfect harmony between individual effort and team synchronization. Every stroke must be in perfect timing with 19 other paddlers, creating a rhythm that propels the boat forward. This sport has taught me invaluable lessons about leadership, communication, and the importance of each team member's contribution.</p>
+                        <p>In 2025, I joined Boston 1 as Boat Rental Coordinator, continuing to develop as an athlete while contributing to and supporting the dragon boat community.</p>
                         
-                        <p>Under my leadership, our team achieved remarkable milestones: winning the 200m alumni championship and reaching our highest-ever finish in the 500m event. Beyond the trophies, I'm most proud of building a system that improved our operational efficiency by 50% and fostering a team culture where every member feels valued and motivated.</p>
+                        <p>Dragon boating was a completely new sport for me when I arrived in the United States, and it has opened up an entirely new world. Through this journey, I've met incredible teammates who have become lifelong friends, and I've experienced unprecedented growth both physically and mentally.</p>
                         
-                        <p>The early morning practices, the challenging races, and the camaraderie built through shared struggle and triumph have shaped not only my physical fitness but also my approach to leadership and teamwork in all aspects of life.</p>
+                        <p>Through dragon boat racing, I've learned to actively train and utilize my muscles more effectively, significantly improving my cardiovascular fitness. More importantly, I've learned to trust my teammates and work collectively toward shared goals. The sport has taught me mental resilience—how to give everything I have without burning out, and how to maintain peak performance even under extreme conditions.</p>
+                        
+                        <p>This has been one of my happiest memories and most significant growth experiences in a foreign land. Every stroke on the water reminds me of the power of teamwork, dedication, and pushing beyond my limits.</p>
                     `
                 },
                 'kendo': {
                     title: 'Kendo (Japanese Fencing)',
                     image: 'images/kendo.jpg',
                     text: `
-                        <p>Kendo, the "Way of the Sword," represents more than just a martial art to me—it's a philosophy of discipline, respect, and continuous self-improvement. Through years of practice, I've learned that true mastery comes not from defeating opponents, but from conquering one's own limitations.</p>
+                        <p>I began my kendo journey in 2016 at the Peking University Kendo Club, where I served as the training group leader later. Over the years, I've achieved notable accomplishments including third place in the women's individual competition and first place in team competitions. I currently hold the rank of 3rd Dan (三段).</p>
                         
-                        <p>As Vice President of the Peking University Kendo Club, I helped organize and oversee tournaments with 200 participants, ensuring smooth operations while maintaining the traditional etiquette and spirit of kendo. This role taught me the delicate balance between preserving tradition and adapting to modern organizational needs.</p>
+                        <p>Due to injury, I haven't been able to practice kendo for nearly a year. However, I'm actively working on rehabilitation exercises and look forward to the day when I can return to the dojo and resume my training.</p>
                         
-                        <p>The principles of kendo—respect, discipline, courage, and sincerity—extend far beyond the dojo. Every training session is a lesson in focus and mental fortitude. The moment before striking, the ki-ken-tai-ichi (spirit-sword-body-unity), requires complete harmony of mind, weapon, and body.</p>
+                        <p>The journey of learning kendo has been a balance of pain and joy. Through this practice, I've come to deeply understand the concept of <strong>Shu-Ha-Ri (守破離)</strong>:</p>
                         
-                        <p>Whether in competitive matches or daily practice, kendo continually reminds me that the greatest opponent is oneself, and the path to improvement is never-ending.</p>
+                        <ul style="margin-left: 2rem; line-height: 1.8;">
+                            <li><strong>Shu (守 - "Protect/Obey"):</strong> Initially, I focused on learning the fundamental forms and following traditional teachings precisely, building a solid foundation.</li>
+                            <li><strong>Ha (破 - "Break/Detach"):</strong> As I progressed, I began to break from strict forms, understanding the principles behind the techniques and adapting them to my own style.</li>
+                            <li><strong>Ri (離 - "Leave/Separate"):</strong> Eventually transcending the forms entirely, moving with natural fluidity while maintaining the essence of kendo philosophy.</li>
+                        </ul>
+                        
+                        <p>This Shu-Ha-Ri framework has profoundly influenced not just my martial arts practice, but my approach to learning and life in general. It has taught me that mastery comes from first respecting tradition, then understanding its principles, and finally making it your own.</p>
+                        
+                        <p>Beyond the physical and philosophical aspects, kendo has brought wonderful people into my life. Most importantly, I met my boyfriend when I first started practicing kendo. He has been my life companion, constantly encouraging and supporting me as my soulmate, and also a close friend with whom I share common interests and endless conversations. Kendo gave me not just a martial art, but a partner for life's journey.</p>
                     `
                 },
                 'ball-sports': {
                     title: 'Ball Sports',
                     image: 'images/sports.jpg',
                     text: `
-                        <p>Ball sports have been my gateway to understanding team dynamics, strategic thinking, and the joy of physical activity. From the fast-paced action of basketball to the precision of badminton and the teamwork in volleyball, each sport offers unique challenges and rewards.</p>
+                        <p>My athletic journey began in 2013 when I entered university. I was immediately drawn to the women's volleyball team by the team members' humorous personalities and harmonious team atmosphere. Before university, I had rarely participated in sports, but volleyball changed everything.</p>
                         
-                        <p>Basketball taught me about reading the court, anticipating teammates' movements, and making split-second decisions under pressure. The transition from offense to defense, the importance of positioning, and the beauty of a well-executed play all mirror the strategic thinking required in research and problem-solving.</p>
+                        <p>I progressed from being a substitute player to a semi-regular, and eventually became a starting middle blocker. Through countless matches—some won, some lost—I made many friends and created countless happy memories. After leaving Peking University, I haven't had the opportunity to play volleyball competitively, but I still deeply cherish those days.</p>
                         
-                        <p>Volleyball emphasized the critical importance of communication and trust. Every successful spike depends on a perfect set, which depends on a clean pass. This chain of dependency reinforces that in team environments, everyone's contribution matters equally.</p>
+                        <p>I started learning tennis in 2024 because my boyfriend has played since childhood and began teaching me. Although my practice has been intermittent due to injury, I continue to make progress. I'm particularly inspired by Roger Federer's words from his 2024 Dartmouth College commencement speech:</p>
                         
-                        <p>Badminton, while often seen as recreational, demands incredible reflexes, footwork, and strategic shot placement. The one-on-one or doubles format creates intimate competitive dynamics that sharpen both physical and mental agility.</p>
+                        <blockquote style="border-left: 4px solid var(--accent-color); padding-left: 1.5rem; margin: 1.5rem 0; font-style: italic; color: var(--text-medium);">
+                            "When you're playing a point, it is the most important thing in the world. But when it's behind you, it's behind you... This mindset is really crucial, because it frees you to fully commit to the next point... and the next one... with intensity, clarity and focus."
+                        </blockquote>
                         
-                        <p>Through these sports, I've maintained physical fitness while building lasting friendships and learning life lessons about perseverance, sportsmanship, and the joy of shared achievement.</p>
+                        <p>The most fascinating aspect of ball sports is this philosophy of "believing in the next point." As long as you don't give up, there's always another chance. Whether it's the next serve in volleyball, the next rally in tennis, or the next game, the opportunity for redemption and success is always there. This resilience—the ability to reset mentally and commit fully to the present moment—is what makes these sports so captivating and what keeps me coming back despite setbacks.</p>
+                        
+                        <p>Ball sports have taught me that failure is temporary, but the spirit to try again is what defines an athlete. Every point is a new beginning, and that lesson extends far beyond the court.</p>
                     `
                 },
                 'photography': {
                     title: 'Photography',
                     image: 'images/photography.jpg',
                     text: `
-                        <p>Photography is my way of freezing moments in time, telling stories without words, and seeing the world through a different lens—quite literally. What began as casual snapshots has evolved into a passionate pursuit of capturing light, emotion, and the extraordinary in the ordinary.</p>
+                        <p>Photography, for me, is a way of documenting life. Rather than diving deep into technical mastery, I prefer to wander through different cities with my camera, discovering and capturing the beauty in everyday moments. Whether it's the vibrant energy of urban streets or the breathtaking artistry of nature's landscapes, I find joy in preserving these fleeting scenes.</p>
                         
-                        <p>I'm particularly drawn to landscape photography and candid moments. There's something magical about watching the sunrise paint the sky in colors that last only minutes, or catching an unguarded moment of genuine emotion at a team event. These moments are fleeting, but through photography, they become eternal.</p>
+                        <p>I love sharing my photos on social media because I want others to see the world through my eyes—to understand what beauty means to me. Each photograph is an invitation for viewers to pause and appreciate moments they might otherwise overlook.</p>
                         
-                        <p>The technical aspects of photography—understanding exposure, composition, and post-processing—parallel the analytical thinking in my research. Both require patience, attention to detail, and the ability to see patterns and connections that others might miss.</p>
+                        <p>Beyond still photography, I also enjoy creating videos to document my life. Through editing, I reconstruct my inner world and explore different possibilities of storytelling. Video allows me to not just capture moments, but to weave them into narratives that reflect my thoughts, emotions, and perspectives on life.</p>
                         
-                        <p>Beyond the technical skills, photography has taught me to slow down and truly observe my surroundings. It's a meditative practice that reminds me to appreciate the beauty in everyday life, from the play of light on water during dragon boat practice to the focused intensity on a kendo practitioner's face.</p>
+                        <p>Whether through a single frame or a sequence of moving images, photography and videography serve as my visual diary—a way to preserve memories, share experiences, and connect with others through the universal language of imagery.</p>
                     `
                 },
                 'movies': {
                     title: 'Film & Cinema',
                     image: 'images/movies.jpg',
                     text: `
-                        <p>Cinema is my window into countless lives, cultures, and perspectives. As a passionate film enthusiast, I explore everything from arthouse international cinema to blockbuster franchises, finding value in diverse storytelling approaches and cinematic techniques.</p>
+                        <p>My favorite films include <em>The 400 Blows</em>, <em>Dead Poets Society</em>, <em>Wings of Desire</em>, <em>2001: A Space Odyssey</em>, <em>Breathless</em>, <em>Seven Samurai</em>, <em>Mulholland Drive</em>, and <em>The Legend of 1900</em>. These works represent what I believe cinema should be—not merely entertainment, but profound explorations of life and humanity.</p>
                         
-                        <p>I'm particularly fascinated by films that blend strong narratives with visual artistry—directors like Christopher Nolan, Denis Villeneuve, and Hayao Miyazaki have mastered this balance. Their works demonstrate that cinema can be both intellectually stimulating and emotionally resonant.</p>
+                        <p>I'm particularly drawn to <strong>French New Wave</strong> and <strong>Italian Neorealism</strong>. These movements understood that the beauty of cinema lies in its unique ability to reconstruct reality through montage—the manipulation of audiovisual elements to create meaning. Film is not just about telling a good story; it's about representing and restructuring reality, offering deep contemplation and presentation of the world we inhabit.</p>
                         
-                        <p>Asian cinema holds a special place in my heart. From the philosophical depth of Akira Kurosawa's samurai epics to the emotional nuance of contemporary Chinese and Korean films, these works offer perspectives often missing from mainstream Western cinema.</p>
+                        <p>To me, true cinematic art transcends conventional narrative and explores life and human nature from multiple dimensions. It's about how editing rhythms, visual composition, and sound design work together to create meaning beyond words.</p>
                         
-                        <p>Film analysis has sharpened my ability to read subtext, understand narrative structure, and appreciate how technical choices (cinematography, editing, sound design) contribute to storytelling. These skills of critical analysis and pattern recognition complement my scientific work in unexpected ways.</p>
+                        <p>I have a special affection for <strong>Asian cinema, particularly early Chinese films from the post-1949 era</strong>. These works present unique emotional states and cultural perspectives that are often deeply underestimated or misunderstood by contemporary audiences. They capture a specific historical moment and human experience that deserves recognition and deeper appreciation.</p>
                         
-                        <p>Whether it's a profound meditation on the human condition or a thrilling adventure that sparks imagination, cinema enriches my life by expanding my understanding of human experiences beyond what I could live in a single lifetime.</p>
+                        <p>For me, cinema is a medium that allows us to see the world differently—to question, to feel, and to understand the complexity of human existence through the lens of artistic vision.</p>
                     `
                 },
                 'games': {
                     title: 'Strategic Gaming',
                     image: 'images/games.jpg',
                     text: `
-                        <p>Strategic games—whether board games, card games, strategy video games, or simulation games—offer a unique blend of entertainment and mental challenge. They're not just pastimes; they're playgrounds for testing theories, optimizing strategies, and exploring complex systems.</p>
+                        <p>I'm passionate about <strong>board games and strategy games</strong>. Currently, I'm actively learning both chess and bridge. These games have given me deep insights into game theory, probability, decision-making, risk assessment and management, and understanding when to attack versus when to defend.</p>
                         
-                        <p>Board games like Settlers of Catan, Ticket to Ride, and strategic card games teach resource management, probability calculation, and adaptive planning. The social dynamics of negotiation and competition in multiplayer games mirror real-world collaboration and competition.</p>
+                        <p>These aren't just games, they're microcosms of life itself. Each match helps me better understand my own weaknesses and strengths, and teaches me valuable lessons about competition and cooperation. The strategic thinking required in these games translates directly to real-world problem-solving and interpersonal dynamics.</p>
                         
-                        <p>Strategy games and simulation games (like Civilization, Cities: Skylines, or management simulations) scratch the same intellectual itch as my research work. They present complex systems with interconnected variables, requiring both big-picture strategic thinking and attention to detail. The satisfaction of watching a well-planned strategy unfold successfully is remarkably similar to seeing a research hypothesis confirmed by data.</p>
+                        <p>I also love <strong>simulation games</strong>. My favorite is <em>The Sims</em>, where I enjoy designing houses, experiencing different lives, exploring varied storylines, and achieving different milestones. I see this as a way to explore possibilities that may not be available in real life. In the game world, there are infinite possibilities—you can live lives you'll never live, make choices you'll never make, and see outcomes you'll never experience.</p>
                         
-                        <p>What I appreciate most about strategic gaming is the safe environment it provides for experimentation and failure. You can test bold hypotheses, learn from mistakes, and iterate quickly—lessons that transfer beautifully to research methodology and problem-solving in general.</p>
+                        <p>Beyond personal enjoyment, I use games to understand humanities and history. My boyfriend and I created a video series exploring <em>Civilization VI</em>, using the game as a lens to understand different civilizations and nations' development throughout history. Through gameplay, we experienced how civilizations evolved step by step to reach the present day, understanding which historical outcomes were coincidental and which might have been inevitable.</p>
                         
-                        <p>These games also serve as excellent social activities, bringing together friends over shared challenges and friendly competition. Some of my best conversations and strongest friendships have been forged over game tables, proving that play and intellectual engagement aren't mutually exclusive.</p>
+                        <p>Gaming, for me, is not just escapism, it's a laboratory for understanding complex systems, exploring hypothetical scenarios, and gaining perspectives on history, society, and human nature. Each game is an opportunity to think critically, make strategic decisions, and learn lessons that extend far beyond the virtual world.</p>
                     `
                 }
             };
